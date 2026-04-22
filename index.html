@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <h1 id="math" style="text-align: center;">...</h1>
+  //I'll fix that later
+  <script>
+    function as() {
+      let t = ""
+      let a = []
+      while (Math.random() < 0.9) {
+        a.push(2*(Math.floor(2*Math.random())-0.5)*Math.floor(1/Math.random()))
+      }
+      for (let i = 0; i < a.length; i++) {
+        t += "+-"[Math.floor(2*Math.random())].repeat(Number(i > 0)) + a[i]
+      }
+      return t
+    }
+    function load() {document.getElementById("math").textContent = as()}
+  </script>
+</body>
+</html>
