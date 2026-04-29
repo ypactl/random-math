@@ -11,7 +11,7 @@
       let t = ""
       let a = []
       while (Math.random() < 0.9) {
-        a.push(2*(Math.floor(2*Math.random())-0.5)*Math.floor(1/Math.random()))
+        a.push(Math.floor(1/Math.random())*10-Math.floor(Math.random()*10))
       }
       for (let i = 0; i < a.length; i++) {
         t += "+-"[Math.floor(2*Math.random())].repeat(Number(i > 0)) + a[i]
