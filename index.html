@@ -7,11 +7,29 @@
 <body>
   <h1 id="math" style="text-align: center;">...</h1>
   <script>
+    function rng() {
+      return Math.floor(1/Math.random())*10-Math.floor(Math.random()*10)
+    }
+    function md() {
+      let t = ""
+      let a = [(2*Math.floor(Math.random()*2)-1)*rng()]
+      while (Math.random() < 0.9) {
+        a.push(rng())
+      }
+      for (let i = 0; i < a.length; i++) {
+        t += "*/"[Math.floor(2*Math.random())].repeat(Number(i > 0)) + a[i]
+      }
+      return t
+    }
     function as() {
       let t = ""
-      let a = []
+      let a = [(2*Math.floor(Math.random()*2)-1)*rng()]
       while (Math.random() < 0.9) {
-        a.push(Math.floor(1/Math.random())*10-Math.floor(Math.random()*10))
+        if (Math.random() < 1/2) {
+          a.push(md())
+        } else {
+          a.push(rng())
+        }
       }
       for (let i = 0; i < a.length; i++) {
         t += "+-"[Math.floor(2*Math.random())].repeat(Number(i > 0)) + a[i]
