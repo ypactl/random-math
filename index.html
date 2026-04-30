@@ -11,14 +11,16 @@
       alert("Message: " + message + "\n" + "Line: " + lineno + "Col: " + colno)
       return false
     }
+    let h = 0
     function rng() {
       return Math.floor(1/Math.random())*10-Math.floor(Math.random()*10)
     }
     function md() {
+      h++
       let t = ""
       let a = [[(2*Math.floor(Math.random()*2)-1)*rng()][Math.floor(Math.random()*2)]]
       while (Math.random() < 2/3) {
-        if (Math.random() < 1/3) {
+        if (Math.random() < 1/(1+h)) {
           a.push("("+as()+")")
         } else {
           a.push(rng())
@@ -30,10 +32,11 @@
       return t
     }
     function as() {
+      h++
       let t = ""
       let a = [[(2*Math.floor(Math.random()*2)-1)*rng(), md()][Math.floor(Math.random()*2)]]
       while (Math.random() < 2/3) {
-        if (Math.random() < 1/2) {
+        if (Math.random() < 1/(1+h)) {
           a.push(md())
         } else {
           a.push(rng())
