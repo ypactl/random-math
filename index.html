@@ -29,7 +29,8 @@
       for (let i = 0; i < a.length; i++) {
         t += "*/"[Math.floor(2*Math.random())].repeat(Number(i > 0)) + a[i]
       }
-      return t
+      h--
+      return t.toString()
     }
     function as() {
       h++
@@ -45,7 +46,8 @@
       for (let i = 0; i < a.length; i++) {
         t += "+-"[Math.floor(2*Math.random())].repeat(Number(i > 0)) + a[i]
       }
-      return t
+      h--
+      return t.toString()
     }
     function load() {document.getElementById("math").innerHTML = "Loaded<sup>1</sup> "+as().toString().replaceAll("--", "+")}
     load()
