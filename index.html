@@ -18,14 +18,11 @@
       let t = ""
       let a = [[(2*Math.floor(Math.random()*2)-1)*rng()][Math.floor(Math.random()*2)]]
       while (Math.random() < 2/3) {
-        if (Math.random() < 1/2) {
+        if (Math.random() < 1/3) {
           a.push("("+as()+")")
         } else {
           a.push(rng())
         }
-      }
-      if (a.length < 2 && typeof a[0] == "number") {
-        a[0] = Math.abs(a[0])
       }
       for (let i = 0; i < a.length; i++) {
         t += "*/"[Math.floor(2*Math.random())].repeat(Number(i > 0)) + a[i]
@@ -47,7 +44,7 @@
       }
       return t
     }
-    function load() {document.getElementById("math").innerHTML = "Loaded<sup>1</sup> "+as().toString()}
+    function load() {document.getElementById("math").innerHTML = "Loaded<sup>1</sup> "+as().toString().replaceAll("--", "+")}
     load()
   </script>
 </body>
