@@ -18,7 +18,7 @@
     function md() {
       h++
       let t = ""
-      let a = [[(2*Math.floor(Math.random()*2)-1)*rng(), "("+as()+")"][Math.floor(Math.random()*2)]]
+      let a = [[(2*Math.floor(Math.random()*2)-1)*rng(), "("+as()+")"][Math.floor(Math.random()*(1+1/h))]]
       while (Math.random() < 2/3) {
         if (Math.random() < 1/(1+h)) {
           a.push("("+as()+")")
@@ -35,7 +35,7 @@
     function as() {
       h++
       let t = ""
-      let a = [[(2*Math.floor(Math.random()*2)-1)*rng(), md()][Math.floor(Math.random()*2)]]
+      let a = [[(2*Math.floor(Math.random()*2)-1)*rng(), md()][Math.floor(Math.random()*(1+1/h))]]
       while (Math.random() < 2/3) {
         if (Math.random() < 1/(1+h)) {
           a.push(md())
