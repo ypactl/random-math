@@ -5,16 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <h1 id="math" style="text-align: center;">...</h1>
+  <h1 id="math" style="text-align: center;">Loa<sub>d</sub>ing...</h1>
   <script>
     function rng() {
       return Math.floor(1/Math.random())*10-Math.floor(Math.random()*10)
     }
     function md() {
       let t = ""
-      let a = [(2*Math.floor(Math.random()*2)-1)*rng()]
+      let a = [[(2*Math.floor(Math.random()*2)-1)*rng()][Math.floor(Math.random()*2)]]
       while (Math.random() < 2/3) {
-        a.push(rng())
+        if (Math.random() < 1/2) {
+          a.push("("+as()+")")
+        } else {
+          a.push(rng())
+        }
+      }
+      if (a.length < 2) {
+        a[0] = Math.abs(a[0])
       }
       for (let i = 0; i < a.length; i++) {
         t += "*/"[Math.floor(2*Math.random())].repeat(Number(i > 0)) + a[i]
