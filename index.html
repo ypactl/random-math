@@ -13,7 +13,7 @@
     function md() {
       let t = ""
       let a = [(2*Math.floor(Math.random()*2)-1)*rng()]
-      while (Math.random() < 0.9) {
+      while (Math.random() < 2/3) {
         a.push(rng())
       }
       for (let i = 0; i < a.length; i++) {
@@ -23,8 +23,8 @@
     }
     function as() {
       let t = ""
-      let a = [(2*Math.floor(Math.random()*2)-1)*rng()]
-      while (Math.random() < 0.9) {
+      let a = [[(2*Math.floor(Math.random()*2)-1)*rng(), md()][Math.floor(Math.random()*2)]]
+      while (Math.random() < 2/3) {
         if (Math.random() < 1/2) {
           a.push(md())
         } else {
