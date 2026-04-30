@@ -24,7 +24,7 @@
           a.push(rng())
         }
       }
-      if (a.length < 2 && a[0].isFinite()) {
+      if (a.length < 2 && typeof a[0] == "number") {
         a[0] = Math.abs(a[0])
       }
       for (let i = 0; i < a.length; i++) {
