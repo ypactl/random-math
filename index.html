@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <h1 id="math" style="text-align: center;">Loa<sup>d</sup>ing...</h1>
+  <h1 id="math" style="text-align: center;">Shouldn't have an error, right? 2<sup>4<sup>1</sup>1</sup></h1>
   <script>
     window.onerror = function(message, source, lineno, colno, error) {
       alert("Message: " + message + "\n" + "Line: " + lineno + "Col: " + colno)
@@ -15,41 +15,20 @@
     function rng() {
       return Math.floor(1/Math.random())*10-Math.floor(Math.random()*10)
     }
-    function md() {
-      h++
-      let t = ""
-      let a = [[(2*Math.floor(Math.random()*2)-1)*rng(), "("+as()+")"][Math.floor(Math.random()*(1+1/h))]]
-      while (Math.random() < 2/3) {
-        if (Math.random() < 1/(1+h)) {
-          a.push("("+as()+")")
-        } else {
-          a.push(rng())
-        }
-      }
-      for (let i = 0; i < a.length; i++) {
-        t += "*/"[Math.floor(2*Math.random())].repeat(Number(i > 0)) + a[i]
-      }
-      h--
-      return t.toString()
-    }
     function as() {
       h++
       let t = ""
-      let a = [[(2*Math.floor(Math.random()*2)-1)*rng(), md()][Math.floor(Math.random()*(1+1/h))]]
+      let a = [(2*Math.floor(Math.random()*2)-1)*rng()]
       while (Math.random() < 2/3) {
-        if (Math.random() < 1/(1+h)) {
-          a.push(md())
-        } else {
-          a.push(rng())
-        }
+        a.push(rng())
       }
       for (let i = 0; i < a.length; i++) {
-        t += "+-"[Math.floor(2*Math.random())].repeat(Number(i > 0)) + a[i]
+        t += "+-*/"[Math.floor(4*Math.random())].repeat(Number(i > 0)) + a[i]
       }
       h--
-      return t.toString()
+      return t + " = " + eval(t)
     }
-    function load() {document.getElementById("math").innerHTML = "Loaded<sup>1</sup> "+as().toString().replaceAll("--", "+")}
+    function load() {document.getElementById("math").innerHTML = as().toString().replaceAll("--", "+")}
     load()
   </script>
 </body>
