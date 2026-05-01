@@ -18,9 +18,12 @@
     function as() {
       h++
       let t = ""
-      let a = ".".repeat(2 + (Math.random() <Math.E - 2)).split("").map(v => *rng())
-      while (Math.random() < 2/3) {
+      let a = ".".repeat(2 + (Math.random() <Math.E - 2)).split("").map(v => rng())
+      while (Math.random() < 1/2) {
         a.push(rng())
+      }
+      if (Math.random() < 1/2) {
+        a[0] = -a[0]
       }
       for (let i = 0; i < a.length; i++) {
         t += "+-*/"[Math.floor(4*Math.random())].repeat(Number(i > 0)) + a[i]
