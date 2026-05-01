@@ -18,20 +18,27 @@
     function as() {
       h++
       let t = ""
-      let a = ".".repeat(2 + (Math.random() <Math.E - 2)).split("").map(v => rng())
+      let a = ".".repeat(2 + (Math.random() < Math.E - 2)).split("").map(v => rng())
       while (Math.random() < 1/2) {
-        a.push(rng())
+        if (Math.random() < 1/3) {
+          a.push("("+as()+")")
+        } else {
+          a.push(rng())
+        }
       }
       if (Math.random() < 1/2) {
         a[0] = -a[0]
       }
       for (let i = 0; i < a.length; i++) {
+        if (i > 0 && Math.random() < 1/2) {
+          a[i] = "("+(0-a[i])+")"
+        }
         t += "+-*/"[Math.floor(4*Math.random())].repeat(Number(i > 0)) + a[i]
       }
       h--
-      return t + " = " + eval(t)
+      return t
     }
-    function load() {document.getElementById("math").innerHTML = as().toString().replaceAll("--", "+")}
+    function load() {let t = as(); document.getElementById("math").innerHTML = t + " = " + eval(t)}
     load()
   </script>
 </body>
